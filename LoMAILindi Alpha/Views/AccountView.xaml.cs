@@ -26,6 +26,7 @@ namespace Views.LoMAILindi_Alpha
     public partial class AccountView : Window, INotifyPropertyChanged
     {
         private ObservableCollection<MailAccount> _accounts;
+        private MailAccount _selectedMail;
 
         public AccountView()
         {
@@ -53,6 +54,19 @@ namespace Views.LoMAILindi_Alpha
             }
         }
 
+        public MailAccount SelectedMail 
+        { 
+            get
+            {
+                return _selectedMail;
+            }
+            set
+            {
+                _selectedMail = value;
+                if (PropertyChanged != null) PropertyChanged(this, new PropertyChangedEventArgs("SelectedMail"));
+            }
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         private void AddAccountBtn_Click(object sender, RoutedEventArgs e)
@@ -77,6 +91,14 @@ namespace Views.LoMAILindi_Alpha
                 AccountsListbox.ItemsSource = Accounts;
             }
             
+        }
+
+        private void OpenAccountBtn_Click(object sender, RoutedEventArgs e)
+        {
+            GlobalSettings.SelectedAccount = SelectedMail;
+            MainView mainWindow = new MainView();
+            mainWindow.Show();
+            this.Close();
         }
     }
 }

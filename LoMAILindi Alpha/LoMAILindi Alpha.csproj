@@ -89,6 +89,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\CampaignUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\MainView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -101,10 +105,15 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Models\Campaign.cs" />
     <Compile Include="Models\MailAccount.cs" />
     <Compile Include="Modules\DBHandler.cs" />
+    <Compile Include="Modules\GlobalSettings.cs" />
     <Compile Include="Views\AddUserAccountDialog.xaml.cs">
       <DependentUpon>AddUserAccountDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CampaignUserControl.xaml.cs">
+      <DependentUpon>CampaignUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
